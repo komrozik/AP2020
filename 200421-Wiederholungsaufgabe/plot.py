@@ -13,15 +13,15 @@ print(f'Spannung U: {spannung} in V')
 def f(m,x,b):
     return m*x+b
 
-params, cov = curve_fit(f,D,spannung)
+params, cov = curve_fit(f,spannung,D)
 errors = np.sqrt(np.diag(cov))
 params_error = unp.uarray(params,errors)
-print(f'Eintrag 1 in der Cov Matrix: {params_error[0]}')
-print(f'Eintrag 2 in der Cov Matrix: {params_error[1]}')
+print(f'Steigung: {params_error[0]}')
+print(f'Achsenabschnitt: {params_error[1]}')
 
-x_plot = np.linspace(D[0],D[8])
+x_plot = np.linspace(spannung[0],spannung[8])
 plt.plot(x_plot,f(x_plot,*params))
-plt.plot(D,spannung,"rx")
-plt.ylabel(f"$U$ in V")
-plt.xlabel("$D$ in m")
+plt.plot(spannung,D,"rx")
+plt.xlabel(f"$U$ in V")
+plt.ylabel("$D$ in m")
 plt.savefig('build/plot.pdf',bbox_inches='tight')

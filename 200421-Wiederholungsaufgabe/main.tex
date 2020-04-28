@@ -68,13 +68,13 @@
 \item{\textbf{Mittelwert}} \newline
     Der Mittelwert $\bar{x}$ ist der Wert der in der Mitte aller Daten liegt. Dabei geht es um die Werte der Daten und nicht um die Anzahl der Datenpunkte über und unter dem Wert. Um den Mittelwert zu bestimmen werden alle Datenwerte $x_n$ addiert und die Summe wird durch die Anzahl der Daten $N$ geteilt.
     \begin{equation}
-        \bar{x} = \frac{1}{N} \sum \limits_{i=0}^{N}x_i
+        \langle x\rangle = \frac{1}{N} \sum \limits_{i=0}^{N}x_i
     \end{equation}
     Im Experiment kann es vorkommen dass der theoretisch berechnete Mittelwert nie genau gemessen wird.
 \item{\textbf{Standardabweichung}} \newline
     Die Standardabweichung $\sigma$ gibt eine Abschätzung wie weit die Werte gestreut sind. Wenn alle Werte den gleichen Wert haben ist sie 0. Wenn die Werte weit gestreut sind ist die Standardabweichung groß.
     \begin{equation}
-        \sigma = \sqrt{\sigma^2} = \sqrt{\bar{x^2}-\bar{x}^2}
+        \sigma = \sqrt{\sigma^2} = \sqrt{\langle x^2 \rangle -\langle x\rangle^2} = \sqrt{\frac{1}{N-1} \cdot \sum_{i=0}^{N} \left(x_i-\langle x \rangle\right)^2 }
     \end{equation}
 \item{\textbf{Fehler und Standardabweichung}} \newline
     Der Fehler $\Delta x$ der Messwerte hängt zum Teil von der Streuung der Messwerte ab,er hängt aber auch von der Genauigkeit des Messinstruments ab. Die Standardabweichung liefert informationen wie die Werte gestreut sind, aber nicht wie genau die Einzelmessungen sind.
@@ -127,7 +127,7 @@ Aus den Liniennummern \textbf{$N$\textsubscript{Linie}} wurden die Abstände \te
     d = (N\text{\textsubscript{Linie}}-1)\cdot 6 \text{mm}
     \label{eqn:abstand}
 \end{equation}
-Nun kann über eine Lineare Ausgleichsrechnung eine Funktion der Form $U(d) = m\cdot d + b$ an die Messwerte angenähert werden.
+Nun kann über eine Lineare Ausgleichsrechnung eine Funktion der Form $D(U) = m\cdot U + b$ an die Messwerte angenähert werden.
 \begin{figure}[H]
     \center
     \includegraphics[width=0.6\textwidth]{build/plot.pdf}
@@ -136,8 +136,8 @@ Nun kann über eine Lineare Ausgleichsrechnung eine Funktion der Form $U(d) = m\
 \end{figure}
 Für die Parameter der Funkion ergibt sich damit
 \begin{align*}
-    m &= (581\pm 7) \frac{\text{N}}{\text{As}}\\
-    b &= \left(-19.68\pm 0.19\right) \text{V}
+    m &= (0.001719 \pm 0.000020) \frac{\text{m}}{\text{V}}\\
+    b &= \left(0.03386 \pm 0.00021\right) \text{m}
 \end{align*}
 
 
