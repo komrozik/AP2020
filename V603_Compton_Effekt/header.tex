@@ -86,6 +86,7 @@
 
 % Seite drehen für breite Tabellen: landscape Umgebung
 \usepackage{pdflscape}
+\usepackage[a4paper,left=3.5cm,right=2.5cm,bottom=3.5cm,top=3cm,]{geometry}
 
 % Captions schöner machen.
 \usepackage[
@@ -100,7 +101,7 @@
 % Grafiken können eingebunden werden
 \usepackage{graphicx}
 % größere Variation von Dateinamen möglich
-%\usepackage{grffile}
+\usepackage{grffile}
 
 % schöne Tabellen
 \usepackage{booktabs}
@@ -108,6 +109,9 @@
 % Verbesserungen am Schriftbild
 \usepackage{microtype}
 \setlength{\parindent}{0pt}
+\usepackage{xcolor}
+\definecolor{themecolor}{HTML}{83B818}
+\definecolor{subcolor}{RGB}{80, 80, 80}
 
 % Literaturverzeichnis
 \usepackage[
@@ -134,9 +138,6 @@
 
 \author{%
   Konstantin Mrozik\\%
-  \href{mailto:konstantin.mrozik@udo.edu}{konstantin.mrozik@udo.edu}%
-  \and%
-  Marcel Kebekus\\%
-  \href{mailto:marcel.kebekus@udo.edu}{marcel.kebekus@udo.edu}%
+  \href{mailto:konstantin.mrozik@udo.edu}{konstantin.mrozik@udo.edu}
 }
 \publishers{TU Dortmund – Fakultät Physik}
