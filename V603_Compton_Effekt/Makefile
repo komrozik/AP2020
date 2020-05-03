@@ -1,11 +1,11 @@
 all: build/main.pdf
 
 # hier Python-Skripte:
-build/plot_a.pdf: plot.py matplotlibrc header-matplotlib.tex | build
+build/CU_Spektrum.pdf: plot.py matplotlibrc header-matplotlib.tex | build
 	TEXINPUTS=$$(pwd): python plot.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/plot_a.pdf
+build/main.pdf: build/CU_Spektrum.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \
@@ -20,9 +20,11 @@ build/main.pdf: FORCE | build
 
 build:
 	mkdir -p build
+	mkdir -p plots
 
 clean:
 	rm -rf build
+	rm -rf plots
 
 FORCE:
 
