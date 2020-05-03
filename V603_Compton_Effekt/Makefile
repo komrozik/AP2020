@@ -3,9 +3,12 @@ all: build/main.pdf
 # hier Python-Skripte:
 build/CU_Spektrum.pdf: plot.py matplotlibrc header-matplotlib.tex | build
 	TEXINPUTS=$$(pwd): python plot.py
+build/Transmission.pdf: plot.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS=$$(pwd): python plot.py
+
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/CU_Spektrum.pdf
+build/main.pdf: build/CU_Spektrum.pdf build/Transmission.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \
