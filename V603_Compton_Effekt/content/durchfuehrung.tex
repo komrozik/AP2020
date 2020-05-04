@@ -1,22 +1,23 @@
 \section{Durchführung}
 \label{sec:Durchfuehrung}
 \subsection{Charakteristische Strahlung von Kupfer}
-Aus den Kupfer Messwerten bildet sich:
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{plots/CU_Spektrum.pdf}
-    \caption{Kupfer Emissionsspektrum mit Peaks und Bremsberg}
-    \label{fig:CU_Spektrum}
-\end{figure}
-Mit den Peaks bei 1599 Impulsen pro Sekunde bei 20,2° und 5050 Impulsen pro Sekunde bei 22,5°.
-Über die abgelesenen Winkel an den Peaks lassen sich nun die entsprechenden Energien berechnen.
-
+Zu beginn des Versuchs sollen mithilfe des Kupfer Spektrums die Energien $K_{\alpha}$ und $K_{\beta}$ Schale bestimmt werden.
+Dafür werden die Elektronen mit 35keV auf die Anode aus Kupfer beschleunigt, die entstandene Strahlung wird auf einen LiF-Kristall gelenkt.
+Im Versuchsaufbau lässt sich der LiF Kristall über ein Winkelintervall von 8° bis 25° drehen und die emittierte Strahlungsintensität kann gemessen werden.
+Dabei wird die Bragg Reflexion ausgenutzt und die Winkel können einer entsprechenden Wellenlänge zugeordnet werden(Gl. \ref{eqn:Bragg_Gleichung}).
+\subsection{Wellenlängenabhängigkeit der Transmission}
+Um im weiteren Versuchsverlauf die Compotonwellenlänge zu d´bestimmen muss zunächst der Zusammenhang zwischen Transmission und Wellenlänge bestimmt werden.
+Der Versuch wird wieder gleich aufgebaut, allerdings wird nun eine Aluminium Platte hinzugefügt.
+Der LiF Kristall wird diesmal von 7° bis 10° in 0,1° gedreht und die Impulsrate wird jeweils über 200s gemessen.
+Dieselbe Messung wird nochmal ohne Aluminium Absorber wiederholt.
 
 \subsection{Compton Wellenlänge}
-Es wird die Transmission von Aluminium gemessen.
-\begin{figure}[H]
+Für die Messung der Compton Wellenlänge wird der LiF-Kristall durch eine Plexiglasscheibe erstzt, in der die Compton Streuung stattfinden kann. Um nur um 90° gestreute Photonen zu messen wird das Zählrohr im entsprechenden Winkel platziert (Abb. \ref{fig:Versuchsaufbau_2}).
+Nun wird einmal die Zählrate ohne jeglichen Absorber gemessen, einmal wird der Absorber zwischen Quelle und Plexiglas und einmal zwischen Plexiglas und Zählrohr platziert.
+In diesem Versuchsteil wird über 300s gemessen.
+\begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{plots/Transmission.pdf}
-    \caption{Transmission von LiF in Abhängigkeit von der Wellenlänge}
-    \label{fig:Transmission}
+    \includegraphics[width=0.7\textwidth]{bilder/Exp_Aufbau_2.png}
+    \label{fig:Versuchsaufbau_2}
+    \caption{Versuchsaufbau zur Messung der Compton Wellenlänge}
 \end{figure}

@@ -25,7 +25,8 @@ lambda_C = h/(c*m_e)
 lambda_Clit = scipy.constants.physical_constants['Compton wavelength']
 alpha_Ka = np.arcsin((lambda_Ka)/(2*d_LiF))
 alpha_Kb = np.arcsin((lambda_Kb)/(2*d_LiF))
-
+alpha_Ka_W = alpha_Ka*180/np.pi
+alpha_Kb_W = alpha_Kb*180/np.pi
 print("Spektum von Kupfer")
 
 theta_Cu,N = np.genfromtxt("EmissionCu.dat", unpack = True)
@@ -35,7 +36,9 @@ N_loc = scipy.signal.find_peaks(N,height=1000)
 N_peak = np.array([1599,5050])
 theta_peak = np.array([theta_Cu[122],theta_Cu[145]])
 plt.plot(theta_peak,N_peak,'k|',label = 'charakteristische Peaks')
-plt.plot(theta_Cu[1:119],N[1:119],'b--',label = 'Bremsberg')
+plt.plot(theta_Cu[0:119],N[0:119],'b--',label = 'Bremsberg')
+plt.plot(theta_Cu[129:140],N[129:140],'b--')
+plt.plot(theta_Cu[153:180],N[153:180],'b--')
 plt.xlabel(f"Winkel / Grad")
 plt.legend()
 plt.savefig("plots/CU_Spektrum.pdf",bbox_inches='tight')
@@ -92,6 +95,7 @@ lambda_1 = (T_1-unparams[1])/unparams[0]
 lambda_2 = (T_2-unparams[1])/unparams[0]
 lambda_C_berechnet = lambda_2 - lambda_1
 
+AbweichungLambda = ((lambda_C*10**(12))-lambda_C_berechnet)/(lambda_C*10**(12))
 
 
 print(f"""
@@ -100,6 +104,9 @@ lambda A ist:{lambda_Ka}
 lambda B ist:{lambda_Kb}
 alpha A ist:{alpha_Ka}
 alpha B ist:{alpha_Kb}
+Als Winkel:
+alpha A ist:{alpha_Ka_W}
+alpha B ist:{alpha_Kb_W}
 Compton Wellenlänge ist:{lambda_C}
 und in der Literatur: {lambda_Clit}
 
@@ -122,14 +129,5 @@ T2 ist : {T_2}
 lambda 1 [pm]:{lambda_1}
 lambda 2 [pm]:{lambda_2}
 Comptonwellenlänge in Pikometer : {lambda_C_berechnet}
+Abweichung: {AbweichungLambda}
 """)
-
-
-
-
-
-
-
-
-
-

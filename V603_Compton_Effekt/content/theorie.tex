@@ -56,7 +56,7 @@ Wenn Röntgenstrahlung auf ein dreidimensionales regelmäßiges Kristallgitter f
 Wenn die Röntgenstrahlung auf den Kristall fällt wird sie in verschieden tiefen Netzebenen des Kristalls refelektiert und wenn ein Gangunterschied der ungleich einem vielfachen der Wellenlänge der einfallenden Strahlung ist auftritt dann entsteht durch die große Anzahl der Ebenen destruktive interferenz und die Strahlungsintensität nimmt strk ab.
 Falls der Entrittswinkel allerdings genau dem Bragg-Winkel (nach Gl. \ref{eqn:Bragg_Gleichung}) entspricht findet zwischen den Ebenen konstruktive Interferenz statt und die Strhlung wird mit gleicher Intensität emittiert.
 \begin{equation}
-    n\lambda = 2 d \sin(\alpha) \label{eqn:Bragg_Gleichung}
+    n\lambda = 2 d \sin(\alpha) = n\cdot \frac{hc}{E} \label{eqn:Bragg_Gleichung}
 \end{equation}
 Bragg Gleichung mit der Beugungsordnung $n$ ,dem Gitterabstand $d$ (siehe Abb. \ref{fig:Bragg_Reflexion}) und dem Glanzwinkel $\alpha$ (siehe Abb. \ref{fig:Bragg_Reflexion}).
 \begin{figure}
@@ -65,6 +65,17 @@ Bragg Gleichung mit der Beugungsordnung $n$ ,dem Gitterabstand $d$ (siehe Abb. \
     \caption{Bragg Reflexion im Winkel $\alpha$ an einem Kristallgitter mit Gitterabstand $d$ }
     \label{fig:Bragg_Reflexion}
 \end{figure}
-\subsection{Geiger Müller Zählrohr}
 
+\subsection{Geiger Müller Zählrohr}
+Die Röntgenstrahlung wird im Experiment mit einem Geiger-Müller Zählrorhr gemessen.
+Ein Geiger Müller Zählrohr ist ein mit Luft gefüllter Zylinder, bei dem auf einer Seite durch ein Glimmfenster die Strahlung einfallen kann.
+Im Zylinder befindet sich in der MItte ein Stab der als ANode dient und der Zylindermantel dient als Kathode.
+zwischen der Anode und der Kathode wird nun der Mantel mit dem Minuspol der Stromquelle und der Stab im Innern über einen großen Wiederstand mit dem Pluspol verbunden.
+Wenn nun ein Röntgenquant in das Zahlrohr fällt ionisiert er die Atome und eine Kaskade an Ionistation durch die Elektronen und entstehende Photonen findet statt.
+Zu dem Zeitpunkt zu dem fast das gnaze Rohr ionisiert ist kann dann parallel zum Wiederstand ein Impuls gemessen werden.
+Durch diese Messmethode tritt das Problem der sogenannten Totzeit auf,denn wenn ein Photon in den Zylinder fällt und dieser sich noch nicht entladen hat trägt das Photon nur zur aktuellen ionisation bei und wird selber nicht gemessen.
+Um den Effekt der Totzeit bei hoher Strahlungsintensität klein zu halten wird eine sogenannte Totzeitkorrektur (Gl. \ref{eqn:Totzeitkorrektur}) durchgeführt, bei der die Experimentelle Zählrate $N$ mit der Totzeit $\tau$ in die korrigierte Zählrate $I$ umgerechnet wird.
+\begin{equation}
+    I  = \frac{N}{1-\tau \cdot N}    \label{eqn:Totzeitkorrektur}
+\end{equation}
 
