@@ -1,15 +1,15 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-Im folgenden werden alle Meßunsicherheiten die aus Formeln mit fehlerbehafteten Größen stammen
-mit der Gaußschen Fehlerfortpflanzung (Gl. \ref{eqn:Gauss}) berechnet.
-\begin{equation}
-    \Delta f =  \sqrt{\sum_{i=0}^n \left( \frac{\delta f}{\delta x_i} \cdot \Delta x_i\right)}   
-    \label{eqn:Gauss}
-\end{equation}
+% Im folgenden werden alle Meßunsicherheiten die aus Formeln mit fehlerbehafteten Größen stammen
+% mit der Gaußschen Fehlerfortpflanzung (Gl. \ref{eqn:Gauss}) berechnet.
+% \begin{equation}
+%     \Delta f =  \sqrt{\sum_{i=0}^n \left( \frac{\delta f}{\delta x_i} \cdot \Delta x_i\right)}   
+%     \label{eqn:Gauss}
+% \end{equation}
 
 \subsection{Vorbereitung}
-Als Vorbereitung werden die Energien $E_{\text{K}\alpha}$ und $E_{\text{K}\beta}$ für Kupfer recherchiert.
+Als Vorbereitung werden die Energien $E_{\text{K}\alpha}$ und $E_{\text{K}\beta}$ für Kupfer recherchiert. (Quelle: \cite{CuLit})
 \begin{align*}
     E_{\text{K}\alpha} &= 8,038\text{keV}    &&   E_{\text{K}\beta} = 8,905\text{keV} \label{eqn:EnergieKupfer}
 \end{align*}
@@ -35,7 +35,7 @@ Aus den Kupfer Messwerten bildet sich:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{plots/CU_Spektrum.pdf}
-    \caption{Kupfer Emissionsspektrum mit Peaks und Bremsberg}
+    \caption{Die Impulsrate wird gegen die Winkel aufgetragen. Das Kupfer Emissionsspektrum mit den chrakteristischen Peaks und dem Bremsberg ist zu erkennen.  }
     \label{fig:CU_Spektrum}
 \end{figure}
 Mit einer Scipy Funktion werden die Peaks bei 1599 Impulsen pro Sekunde bei 20,2° und 5050 Impulsen pro Sekunde bei 22,5° gefunden.
@@ -62,7 +62,7 @@ Die Transmission wird gegen die Wellenlänge aufgetragen und mit einer linearen 
 Mit den Parametern und den Unsicherheiten aus der Covarianzmatrix ergibt sich:
 \begin{align*}
     T(\lambda) = m \cdot \lambda + b  \\
-    m = -0,0152 \pm 0,0003 \frac{1}{m}&& b= 1,23 \pm 0,02 
+    m = -0,0152 \pm 0,0003 \frac{1}{\text{pm}}&& b= 1,23 \pm 0,02 
 \end{align*}
 
 \subsection{Comptonwellenlänge}
@@ -72,17 +72,29 @@ Dafür werden die Impulsraten von den gestreuten und ungestreuten Photonen mit G
     I_{\text{gestreut}} &= 1180 \pm 34  \\ 
     I_{\text{ungestreut}} &= 1024 \pm 32  \\
     I_0 &= 2730 \pm 50 \\
-    T_1 &= 0,0432 \pm 0,015 \\
+    T_1 &= 0,432 \pm 0,015 \\
     T_2 &= 0,375 \pm 0,014 \\ 
 \end{align*}
+Mit dem Fehler aus:
+\begin{equation*}
+    \Delta T_{\text{i}} = \sqrt{\left( \frac{1}{I_0} \Delta I_{\text{i}} \right)^2 + \left( -\frac{I_{\text{i}}}{I_0^2}\Delta I_0 \right)^2}
+\end{equation*}
 \begin{align*}
     \lambda &= \frac{T-b}{m} \\
     \lambda_{1} &=  (52,2 \pm 1,6) \cdot 10^{-12} \text{m}\\
     \lambda_{2} &=  (55,9 \pm 1,6) \cdot 10^{-12} \text{m}
 \end{align*}
+Mit dem Fehler
+\begin{equation*}
+    \Delta\lambda = \sqrt{ \left( \frac{1}{m}  \Delta T \right)^2 + \left( -\frac{1}{m} \Delta b \right)^2 +\left( \frac{b-T}{m^2} \Delta m \right)^2} 
+\end{equation*}
 Über Gleichung \ref{eqn:Compton_Gesetz} lässt sich über die Wellenlängendifferenz die Comptonwellenlänge des Elektrons bestimmen.
 Die Differenz der Wellenlängen entspricht der Comptonwellenlänge da die Strahlung genau im 90° Winkel gestreut wird.
 \begin{equation*}
     \Delta\lambda = \lambda_{\text{C}} = (3,8\pm 1,1)\cdot 10^{-12} \text{m}
+\end{equation*}
+Der Fehler ergibt sich aus:
+\begin{equation*}
+    \Delta \lambda_{\text{C}} = \sqrt{\left(\Delta\lambda_1\right)^2 + \left(\Delta \lambda_2\right)^2}
 \end{equation*}
 
