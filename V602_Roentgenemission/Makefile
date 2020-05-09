@@ -1,11 +1,7 @@
 all: build/main.pdf
 
 # hier Python-Skripte:
-build/Bragg.pdf: plot.py matplotlibrc header-matplotlib.tex | build
-	TEXINPUTS=$$(pwd): python plot.py
-build/Cu_Emission.pdf: plot.py matplotlibrc header-matplotlib.tex | build
-	TEXINPUTS=$$(pwd): python plot.py
-build/Brom.pdf: plot.py matplotlibrc header-matplotlib.tex | build
+plots/Bragg.pdf: plot.py matplotlibrc header-matplotlib.tex | build
 	TEXINPUTS=$$(pwd): python plot.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
