@@ -18,8 +18,7 @@ build/main.pdf: FORCE | build
 	latexmk -pvc\
 	  --lualatex \
 	  --output-directory=build \
-	  --interaction=nonstopmode \
-	  --halt-on-error \
+	  --interaction=errorstopmode \
 	main.tex
 
 build:
