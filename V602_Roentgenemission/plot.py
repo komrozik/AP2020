@@ -10,6 +10,7 @@ from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 from scipy.optimize import curve_fit
 from scipy.signal import find_peaks
 import scipy.constants
+from scipy.interpolate import UnivariateSpline
 
 print("Vorbereitung")
 
@@ -72,6 +73,27 @@ plt.plot(theta_Cu[peak_loc[1]+6:180],N_Cu[peak_loc[1]+6:180],'b--')
 plt.legend()
 plt.savefig("plots/Cu_Emission.pdf",bbox_inches='tight')
 plt.close()
+
+plt.plot(theta_Cu[peak_loc[0]-15:peak_loc[1]+15],N_Cu[peak_loc[0]-15:peak_loc[1]+15],'rx',label = 'Messdaten')
+plt.plot(theta_peak_Cu,N_peak_Cu,'k|',label = 'Peaks')
+spline = UnivariateSpline(theta_Cu[peak_loc[0]-15:peak_loc[1]+15], N_Cu[peak_loc[0]-15:peak_loc[1]+15]-np.max(N_Cu[peak_loc[0]-15:peak_loc[1]+15])/2, s=0)
+r1a, r2a = spline.roots()
+FWHMa = (h*c)/(2*d_LiF*np.sin(r2a*np.pi/180))-(h*c)/(2*d_LiF*np.sin(r1a*np.pi/180))
+plt.axvspan(r1a, r2a, facecolor='g', alpha=0.5)
+spline = UnivariateSpline(theta_Cu[peak_loc[0]-15:peak_loc[1]-5], N_Cu[peak_loc[0]-15:peak_loc[1]-5]-np.max(N_Cu[peak_loc[0]-15:peak_loc[1]-5])/2, s=0)
+r1b, r2b = spline.roots() 
+FWHMb = (h*c)/(2*d_LiF*np.sin(r1b*np.pi/180))-(h*c)/(2*d_LiF*np.sin(r2b*np.pi/180))
+plt.axvspan(r1b, r2b, facecolor='g', alpha=0.5)
+plt.ylabel(f"Impulse pro Sekunde")
+plt.xlabel(f"Winkel / Grad")
+plt.legend()
+plt.savefig("plots/Cu_Peaks.pdf",bbox_inches='tight')
+plt.close()
+
+E_K_peaka=(h*c)/(2*d_LiF*np.sin(theta_peak_Cu[1]*np.pi/180))
+E_K_peakb=(h*c)/(2*d_LiF*np.sin(theta_peak_Cu[0]*np.pi/180))
+Aa = E_K_peaka/FWHMa
+Ab = E_K_peakb/(FWHMb/scipy.constants.e)
 
 print("Absorptionskanten")
 
@@ -176,9 +198,19 @@ K beta: {E_C_Kb}
 Mit den Bragg Winkeln:
 Alpha: {theta_Ka}
 Beta: {theta_Kb}
+Im Experiment:
+theta: {theta_peak_Cu}
 ----------------------
 BRAGGBEDINGUNG:
 Das Maximum der Kurve weicht um {theta_abs}° vom Sollwert ab.
 Das ist ein relativer Fehler von {theta_rel}. Ungefähr {theta_rel*100} %.
+
+Die Auflösungen sind:
+Energie a:{E_K_peaka*6.242*10**18}
+Energie b:{E_K_peakb*6.242*10**18}
+Delta a : {FWHMa}
+Delta b: {FWHMb}
+Alpha: {Aa}
+Beta: {Ab}
 
 """)
