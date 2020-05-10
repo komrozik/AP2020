@@ -4,8 +4,8 @@
 Um das Experiment vorzubereiten sollen die Energie für die $K_{\alpha}$ und $K_{\beta}$ als Literaturwerte recherchiert werden.
 Außerdem soll zu den Energien der entsprechende Winkel berechnet werden (Gleichung \ref{eqn:Bragg_Bedingung}).
 \begin{align}
-    E_{K_{\alpha}} = 8,038 \text{keV} && E_{K_{\beta}} = 8,905 \text{keV} \\
-    \theta_{\alpha} = 22,52°    &&      \theta_{\beta} = 20,22°
+    E_{K_{\alpha}} &= 8,038 \text{keV} && E_{K_{\beta}} = 8,905 \text{keV} \nonumber \\
+    \theta_{\alpha} &= 22,52°    &&      \theta_{\beta} = 20,22° \nonumber
 \end{align}
 Zu den Elementen bei denen die Absorption untersucht wird sollen auch die entsprechenden Werte recherchiert werden und die Parameter $\theta_K^{Lit}$ und $\sigma_K$ bestimmt werden.
 \begin{table}
@@ -14,6 +14,8 @@ Zu den Elementen bei denen die Absorption untersucht wird sollen auch die entspr
   & Z & $E_K^{Lit}$ & $\theta_K^{Lit}$ & $\sigma_K$\\
   \toprule
 Zn & 30 & 9,65 & 18,6 & 3,56\\
+\midrule
+Ga & 31 & 10,37 & 17,27 & 3,62\\
 \midrule
 Ge & 32 & 11,10 & 16,1 & 3,68\\ 
 \midrule
@@ -27,8 +29,10 @@ Zr & 40 & 17,99 & 9,6 & 4,11\\
 \bottomrule
 \end{tabular}
 \end{table}
-
+Die Parameter wurden aus der Energie mit der Bragg Bedingung \ref{eqn:Bragg_Bedingung} und der Formel \ref{eqn:Sigma} berechnet.
+Die Werte für Gerundium sind für unseren Veruch uninteressant, da das Material nicht untersucht wird.
 \subsection{Bragg Bedingung}
+
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{plots/Bragg.pdf}
@@ -43,41 +47,75 @@ Zr & 40 & 17,99 & 9,6 & 4,11\\
     \caption{Ein Kupfer Plot}
     \label{fig:Cu_Emission}
 \end{figure}
+Die Peaks des Spektrums werden mit einer Scipy funktion bestimmt und der Abschnitt der Peaks nochmal vergrößert dargestellt.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{plots/Cu_Peaks.pdf}
+    \caption{Ein Kupfer Plot mit tolleren Peaks}
+    \label{fig:Cu_Peaks}
+\end{figure}
+Über eine weitere Funktion wird nun die "Full Width at Half Maximum" bestimmt.
+Aus den Werten der FWHM kann nun das Auflösungsvermögen $A$ bestimmt werden.
+\begin{align}
+    A_{\alpha}= 48,56 && A_{\beta} = 43,36
+\end{align}
+
+Aus der Literatur findet man den Wert für $E_{\text{K,abs}}$ als $8980,22$eV.
+Damit lassen sich die Abschirmkonstanten $\sigma$ betimmen.
+\begin{align}
+    \sigma_1 &= Z-\sqrt{\frac{E_{\text{K,abs}}}{R_{\text{y}}}} \\
+    \sigma_2 &= Z-\sqrt{ \frac{m^2}{n^2}\left(z-\sigma_1\right)^2- \frac{E_{\text{K,}\alpha}}{R_{\text{y}}}m^2 } \\
+    \sigma_3 &= Z-\sqrt{ \frac{l^2}{n^2}\left(z-\sigma_1\right)^2- \frac{E_{\text{K,}\beta}}{R_{\text{y}}}l^2 }
+\end{align}
+\begin{align}
+    \sigma_1 = 00 && \sigma_2 = 00 && \sigma_3 = 00 
+\end{align}
 
 \subsection{Andere Metalle}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{plots/Brom.pdf}
-    \caption{Ein Brom Plot}
-    \label{fig:Brom}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{plots/Gallium.pdf}
-    \caption{Ein Gallium Plot}
-    \label{fig:Gallium}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{plots/Rubidium.pdf}
-    \caption{Ein Rubidium Plot}
-    \label{fig:Rubidium}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{plots/Strontium.pdf}
-    \caption{Ein Strontium Plot}
-    \label{fig:Strontium}
-\end{figure}
+\subsubsection{Zink}
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{plots/Zink.pdf}
     \caption{Ein Zink Plot}
     \label{fig:Zink}
 \end{figure}
+
+\subsubsection{Gallium}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{plots/Gallium.pdf}
+    \caption{Ein Gallium Plot}
+    \label{fig:Gallium}
+\end{figure}
+
+\subsubsection{Brom}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{plots/Brom.pdf}
+    \caption{Ein Brom Plot}
+    \label{fig:Brom}
+\end{figure}
+
+\subsubsection{Rubidium}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{plots/Rubidium.pdf}
+    \caption{Ein Rubidium Plot}
+    \label{fig:Rubidium}
+\end{figure}
+
+\subsubsection{Zirkonium}
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{plots/Zirkonium.pdf}
     \caption{Ein Zirkonium Plot}
     \label{fig:Zirkonium}
+\end{figure}
+
+\subsubsection{Strontium}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{plots/Strontium.pdf}
+    \caption{Ein Strontium Plot}
+    \label{fig:Strontium}
 \end{figure}

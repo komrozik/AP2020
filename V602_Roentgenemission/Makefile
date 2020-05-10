@@ -1,11 +1,11 @@
 all: build/main.pdf
 
 # hier Python-Skripte:
-plots/Brom.pdf plots/Cu_Emission.pdf plots/Bragg.pdf: plot.py matplotlibrc header-matplotlib.tex | build
+plots/Brom.pdf plots/Cu_Peaks.pdf plots/Gallium.pdf plots/Rubidium.pdf plots/Strontium.pdf plots/Zink.pdf plots/Zirkonium.pdf plots/Cu_Emission.pdf plots/Bragg.pdf: plot.py matplotlibrc header-matplotlib.tex | build
 	TEXINPUTS=$$(pwd): python plot.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: plots/Bragg.pdf plots/Brom.pdf plots/Cu_Emission.pdf
+build/main.pdf: plots/Bragg.pdf plots/Brom.pdf plots/Cu_Peaks.pdf plots/Gallium.pdf plots/Rubidium.pdf plots/Strontium.pdf plots/Zink.pdf plots/Zirkonium.pdf plots/Cu_Emission.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \
