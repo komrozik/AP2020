@@ -7,14 +7,53 @@ Im letzten teil des Versuchs soll die Absorption von verschiedenen Metallen unte
 \label{sec:theorie}
 
 \subsection{Erzeugung von Röntgenstrahlung}
+Um Bremsstrahlung zu erzeugen wird mit einer evakuierten Röhren mit einem Glühdraht als Kathode und einer Metallanode gearbeitet.
+Aus dem Glühdraht werden Elektronen ausgelöst und mit einer Beschleunigungsspannung zur Anode hin beschleunigt.
+Wenn die ausgelösten Eleltronen auf die Anode treffen wird Röntgenstrahlung erzeugt und in Richtung einer Probe gelenkt.
+Die Röngtgenstrahlung die bei diesem Versuchsaufbau erzeugt wird hat ein spezielles Spektrum, das aus einem kontinuierlichen Bremsberg und chrakteristischen Peaks besteht.
 \subsubsection{Bremsspektrum}
+Wenn die Elektronen aus der Glühkathode in das Anodenmaterial eindringen, wirkt die Coulombanziehung auf die Elektronen und sie werden abgelenkt und geben EM strahlung ab,wodurch sie auch abgebremst werden.
+Da die Elektronen kontinuierlich abgebremst werden entsteht auch ein kontinuierliches Bremsspektrum.
+\textbf{Hier muss erklärt werden warum der Berg ausieht wie er aussieht!!!
+        Warum bricht er ab???}
+Das kontinuierliche Bremsspektrum hat dabei die Form eines sogenannten Bremsberg, wie in Abb \ref{fig:Bremsspektrum} gut zu erkennen.
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{bilder/Bremsspektrum.png}
     \caption{Skizze eines Graphen der die Intensität der Röntgenstrahlung in abhängigkeit von der Wellenlänge zeigt. (Quelle \cite{Anleitung})}
     \label{fig:Bremsspektrum}
 \end{figure}
+Der Bremsberg entsteht, da die Elektronen maximal die gesamte kinetische Energie abgeben können.
+Die daraus resultierende minimale Wellenlänge lässt sich mithilfe der Beschleunigungsspannung berechnen (Gl. \ref{eqn:E_kin_min}).
+Das der Bremsberg vor seinem Maximum nicht unmittelbar auf Null abflacht ist damit zu erklären, dass das Messinstrument Strahlung unter einem Grenzwert nicht mehr detektieren kann.
+Das Maximum des Bremsbergs entspricht der Wellenlänge an der die Elektronen ihre gesamte kinetische Energie abgeben. Der Berg flacht von da aus immer weiter ab und nähert sich der y-Achse immer weiter an.
+\begin{equation}
+    \lambda_{\text{min}} = \frac{hc}{e_0 U} \label{eqn:E_kin_min}
+\end{equation}
 \subsubsection{Charakteristische Peaks}
+Neben dem Bremsspektrum entstehen im Spektrum auch noch Peaks die für das jeweilige Anodenmaterial charakteristisch sind.
+Die charakteristischen Peaks entstehen dadurch, dass das Anodenmaterial durch die Elektronen ionisiert wird und dabei eine bestimmte Energie emittiert.
+Bei der Ionistation eines Atoms wird ein Platz in einer der Schalen des Atoms,mit der Energie $E_{\text{n}}$, frei und kann durch ein Elektron aus einer höheren Schale mit der Energie $E_{\text{m}}$ besetzt werden.
+Wenn ein Elektron aus einer höheren Schale in einen freien Platz in einer energetisch günstigeren Schale wechselt, dann gibt es dabei die Energiedifferenz $\Delta E = E_{\text{m}} -E_{\text{n}}$ in Form von Röntgenstrahlung ab.
+\begin{description}
+    \item[Benennung der Übergänge]
+    Wenn man die spezielle Strahlung benennen möchte muss man zum einen die Schale aus der das Elektron kommt, aber auch die Schale in die es wechselt angegeben werden.
+    Die Schalen eines Atoms werden mit den Großbuchstaben ab K (K,L,M,...) bezeichnet und bezeichnen beim Schalenwechsel die Ziel Schale.
+    Um zu bestimmen aus welcher Schale das Elektron stammt wird der Bezeichnung der Zielschale noch ein Index hinzugefügt mit einem entsprechenden griechischen Buchstaben.
+    Wenn ein Elektron aus der nächst höheren Schale kommt wird es mit $\alpha$ bezeichnet und die Schalen danach mit den entsprechenden höheren Buchstaben($\alpha,\beta,\gamma,...$).
+    Wenn ein Elektron nun zum Beispiel aus der L in die K Schale wechselt wird dieser Übergang mit $K_{\alpha}$ bezeichnet.
+\end{description}
+Um die Energie der Elektronen auf den verschidenen Schalen zu bestimmen ist es Allerdings stark vereinfacht, wenn nur die Coulombanziehung des Kerns betrachtet wird.
+Damit die sich die Energie der realen Energie der Elektronen weiter annähert,werden in diesem Experiment zusätzlich die Elektronen in den Schalen zwischen dem kern und dem zu betrachtenden Elektron mit einberechnet.
+Durch diese Elektronen ist die Kernladung weiter abgeschwächt und für die Bindungsenergie der äußeren Schalen ergibt sich \ref{eqn:Bindungsenergie}
+\begin{equation}
+    E_{\text{n}} = -R_{\text{y}} z_{\text{eff}}^2 \cdot \frac{1}{n^2} \label{eqn:Bindungsenergie}
+\end{equation}
+Mit der Rydberg-Energie $R_{\text{y}} = R_{\text{y}} = hR = hcR_{\infty}$, aus der Rydberg-Konstanten $R_{\infty}$ oder der Rydberg-Frequenz $R$,und der effektiven Kernladungszahl $z_{\text{eff}} = z-\sigma$ die sich aus der Abschirmkonstanten $\sigma$ berechnen lässt.
+Damit ergibt sich beispielsweise für den $K_{\alpha}$ Übergang.
+\begin{equation*}
+    E_{K_{\alpha}}= R_{\text{y}}(z-\sigma_1)^2 \frac{1}{1^2} - R_{\text{y}}
+\end{equation*}
 
 \subsection{Absorption}
 \begin{figure}
