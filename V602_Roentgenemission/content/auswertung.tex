@@ -8,7 +8,7 @@ Außerdem soll zu den Energien der entsprechende Winkel berechnet werden (Gleich
     \theta_{\alpha} &= 22,52°    &&      \theta_{\beta} = 20,22° \nonumber
 \end{align}
 Zu den Elementen bei denen die Absorption untersucht wird sollen auch die entsprechenden Werte recherchiert werden und die Parameter $\theta_K^{Lit}$ und $\sigma_K$ bestimmt werden.
-\begin{table}
+\begin{table}[H]
 \centering
 \begin{tabular}{lllll}
   & Z & $E_K^{Lit}$ & $\theta_K^{Lit}$ & $\sigma_K$\\
@@ -30,9 +30,14 @@ Zr & 40 & 17,99 & 9,6 & 4,11\\
 \end{tabular}
 \end{table}
 Die Parameter wurden aus der Energie mit der Bragg Bedingung \ref{eqn:Bragg_Bedingung} und der Formel \ref{eqn:Sigma} berechnet.
-Die Werte für Gerundium sind für unseren Veruch uninteressant, da das Material nicht untersucht wird.
+Die Werte für Gerundium sind für unseren Versuch uninteressant, da das Material nicht untersucht wird.
 \subsection{Bragg Bedingung}
-
+Aus den Messdaten ergibt sich der Plot \ref{fig:Bragg} und es kann mit der SciPy Funktion findPeaks das Maximum bestimmen.
+Damit lässt sich auch die Abweichung von den Literaturwerten bestimmen.
+\begin{align}
+    \Delta \theta_{\text{abs}} = \theta_{\text{lit}}-\theta_{\text{exp}} && \Delta \theta_{\text{rel}} = \frac{\Delta \theta_{\text{abs}}}{\theta_{\text{lit}}}\\
+    \Delta \theta_{\text{abs}} = 0,2° &&     \Delta \theta_{\text{rel}} = 0,0071 \; \hat{=} \; 0,71 \% 
+\end{align}
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{plots/Bragg.pdf}
@@ -41,6 +46,7 @@ Die Werte für Gerundium sind für unseren Veruch uninteressant, da das Material
 \end{figure}
 
 \subsection{Kupfer Emission}
+Aus den Messdaten lässt sich der Plot \ref{fig:Cu_Emission} erstellen und die Peaks und der Bremsberg sind klar zu erkennen.
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{plots/Cu_Emission.pdf}
@@ -57,21 +63,30 @@ Die Peaks des Spektrums werden mit einer Scipy funktion bestimmt und der Abschni
 Über eine weitere Funktion wird nun die "Full Width at Half Maximum" bestimmt.
 Aus den Werten der FWHM kann nun das Auflösungsvermögen $A$ bestimmt werden.
 \begin{align}
+    A = \frac{E_{\text{peak}}}{\Delta E_{\text{FWHM}}} \nonumber\\
     A_{\alpha}= 48,56 && A_{\beta} = 43,36
 \end{align}
-
-Aus der Literatur findet man den Wert für $E_{\text{K,abs}}$ als $8980,22$eV.
-Damit lassen sich die Abschirmkonstanten $\sigma$ betimmen.
-\begin{align}
+Desweiteren werden die Abschirmkonstanten für Kupfer bestimmt.
+Aus der Literatur findet man den Wert für $E_{\text{K,abs}}$ als $8980,22$ eV.
+Damit lassen sich die Abschirmkonstanten $\sigma$ bestimmen.
+\begin{align*}
     \sigma_1 &= Z-\sqrt{\frac{E_{\text{K,abs}}}{R_{\text{y}}}} \\
     \sigma_2 &= Z-\sqrt{ \frac{m^2}{n^2}\left(z-\sigma_1\right)^2- \frac{E_{\text{K,}\alpha}}{R_{\text{y}}}m^2 } \\
     \sigma_3 &= Z-\sqrt{ \frac{l^2}{n^2}\left(z-\sigma_1\right)^2- \frac{E_{\text{K,}\beta}}{R_{\text{y}}}l^2 }
-\end{align}
+\end{align*}
 \begin{align}
-    \sigma_1 = 00 && \sigma_2 = 00 && \sigma_3 = 00 
+    \sigma_1 = 3,31 && \sigma_2 = 12,41 && \sigma_3 = 22,40 
 \end{align}
 
 \subsection{Andere Metalle}
+Im letzten Teil des Experiments werden die Abschirmkonstanten der K-Schale für verschiedene Materialien bestimmt.
+Aus den Messdaten lässt sich für die Metalle jeweils ein Plot darstellen und die Lage der K Kante anhand von Maximum und Minimum berechnen (\ref{eqn:Kante}).
+Mit der berechnetetn Lage der K-Kante kann nun der Wert von $\theta$ für die jeweilige K-Kante abgelesen werden. 
+\begin{equation}
+    I_{\text{K}}= I_{\text{K}}^{\text{min}} + \frac{I_{\text{K}}^{\text{max}}-I_{\text{K}}^{\text{min}}}{2} \label{eqn:Kante}
+\end{equation}
+Aus den Werten von $\theta$ lässt sich mit Gleichung \ref{eqn:Bragg_Bedingung} die entsprechende Energie der K-Kante berechnen.
+Aus der Energie kann mit Gleichung \ref{eqn:Sigma} der Absorptionskoeffizient berechnet werden.
 \subsubsection{Zink}
 \begin{figure}
     \centering
@@ -79,6 +94,10 @@ Damit lassen sich die Abschirmkonstanten $\sigma$ betimmen.
     \caption{Ein Zink Plot}
     \label{fig:Zink}
 \end{figure}
+Für Zink gilt:
+\begin{align*}
+    align*
+\end{align*}
 
 \subsubsection{Gallium}
 \begin{figure}
@@ -87,6 +106,9 @@ Damit lassen sich die Abschirmkonstanten $\sigma$ betimmen.
     \caption{Ein Gallium Plot}
     \label{fig:Gallium}
 \end{figure}
+\begin{align*}
+    align*
+\end{align*}
 
 \subsubsection{Brom}
 \begin{figure}
@@ -95,6 +117,9 @@ Damit lassen sich die Abschirmkonstanten $\sigma$ betimmen.
     \caption{Ein Brom Plot}
     \label{fig:Brom}
 \end{figure}
+\begin{align*}
+    align*
+\end{align*}
 
 \subsubsection{Rubidium}
 \begin{figure}
@@ -103,6 +128,9 @@ Damit lassen sich die Abschirmkonstanten $\sigma$ betimmen.
     \caption{Ein Rubidium Plot}
     \label{fig:Rubidium}
 \end{figure}
+\begin{align*}
+    align*
+\end{align*}
 
 \subsubsection{Zirkonium}
 \begin{figure}
@@ -111,6 +139,9 @@ Damit lassen sich die Abschirmkonstanten $\sigma$ betimmen.
     \caption{Ein Zirkonium Plot}
     \label{fig:Zirkonium}
 \end{figure}
+\begin{align*}
+    align*
+\end{align*}
 
 \subsubsection{Strontium}
 \begin{figure}
@@ -118,4 +149,19 @@ Damit lassen sich die Abschirmkonstanten $\sigma$ betimmen.
     \includegraphics[width=0.7\textwidth]{plots/Strontium.pdf}
     \caption{Ein Strontium Plot}
     \label{fig:Strontium}
+\end{figure}
+\begin{align*}
+    align*
+\end{align*}
+
+\subsection{Moseley Gesetz}
+Laut dem Moseley Gesetz (\ref{eqn:Moseley}) ist die Absorptionsenergie der Kanten proportional zu $z^2$ und aus einer entsprechenden linearen Ausgleichsrechnung lässt sich $R$ bestimmen.
+\begin{equation}
+    E_{\text{k}}= Rh\left(z-\sigma\right)^2 \label{eqn:Moseley}
+\end{equation}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{plots/Rydberg.pdf}
+    \caption{Ein Moseley Plot}
+    \label{fig:Moseley}
 \end{figure}
