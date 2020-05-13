@@ -49,32 +49,50 @@ Durch diese Elektronen ist die Kernladung weiter abgeschwächt und für die Bind
 \begin{equation}
     E_{\text{n}} = -R_{\text{y}} z_{\text{eff}}^2 \cdot \frac{1}{n^2} \label{eqn:Bindungsenergie}
 \end{equation}
-Mit der Rydberg-Energie $R_{\text{y}} = R_{\text{y}} = hR = hcR_{\infty}$, aus der Rydberg-Konstanten $R_{\infty}$ oder der Rydberg-Frequenz $R$,und der effektiven Kernladungszahl $z_{\text{eff}} = z-\sigma$ die sich aus der Abschirmkonstanten $\sigma$ berechnen lässt.
+Mit der Rydberg-Energie $R_{\text{y}} = R_{\text{y}} = hR = hcR_{\infty}$, aus der Rydberg-Konstanten $R_{\infty} ≈ 1,097 \cdot 10^{7} \text{m}^{-1}$  oder der Rydberg-Frequenz $R$, und der effektiven Kernladungszahl $z_{\text{eff}} = z-\sigma$ die sich aus der Abschirmkonstanten $\sigma$ berechnen lässt.
 Damit ergibt sich beispielsweise für den $K_{\alpha}$ Übergang.
 \begin{equation*}
     E_{K_{\alpha}}= R_{\text{y}}(z-\sigma_1)^2 \frac{1}{1^2} - R_{\text{y}}
 \end{equation*}
+Der Abschirmkoeffizient verändert sich dabei für jedes Elektron, ist aber mit empirischen Methoden gut zu bestimmen.
+Entgegen der Erwartung sind die charakteristischen Linien allerdings nicht nur an einem genau definierten Punkt zu finden, sondern erstrecken sich über ein Wellenlängenintervall.
+Die Breite der Linien ist durch den unterschiedlichen Bahndrehimpuls und Spin der Elektronen zu erklären, und wird dann durch die Auflösung des Messgeräts noch verstärkt.
+
 
 \subsection{Absorption}
+Bei Röntgenstrahlung mit einer Energie von weniger als $1 \text{MeV}$ finden in Materialien hauptsächlich der Compton Effekt und der Photoeffekt statt und die Strahlung wird demenentsprechend beim durchdringen des Materials abgeschwächt.
+Dabei ist zu beobachten das der Absorptionskoeffizient für steigende Energie sinkt und Ein Sprung des Abbsorptionskoeffizienten an den stellen stattfindet, an denen die Photonenenrgie die Bindungsenergie der versiedenen Elektronen übersteigt (\ref{fig:Absorption}).
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{bilder/Absorption.png}
+    \includegraphics[width=0.3\textwidth]{bilder/Absorption.png}
     \caption{Skizze eines Graphen für das auftragen der Absorption gegen die Energie. Auf der Skizze sind die gut erkenntlichen L und K Kanten beschriftet. (Quelle \cite{Anleitung})}
     \label{fig:Absorption}
 \end{figure}
-
+Diese Sprünge des Absorptionskoeffizienten nennt man Absorptionskanten und die kannten liegen fast genau bei den Energien, die den Bindungsenergien der Elektronen entsprechen.
+Es gibt im Absorptionsspektrum  drei verschiedene L-Kanten aber nur eine K-Kante.
+Wenn nun zusätslich die Feinstruktur der Probe berücksichtigt wird lässt sich die Bindungsenergie $E_{\text{n,j}}$ gut mit der Sommerfeldschen Feinstrukturformel (\ref{eqn:Sommerfeldsche_Feinstrukturformel}) bestimmen.
+\begin{equation}
+    E_{\text{n,j}} -R_{\text{y}}\left(z_{\text{eff,}1}^2\frac{1}{n^2}+\alpha^2z_{\text{eff,}2}^4\frac{1}{n^3}\left(\frac{1}{j+\frac{1}{2}}-\frac{3}{4n}\right) \right)     \label{eqn:Sommerfeldsche_Feinstrukturformel}
+\end{equation}
+Mit der Sommerfeldschen Feinstrukturkonstanten $\alpha$, der Hauptquantenzahl $n$ und dem Gesamtdrehimpuls $j$ des Elektrons.
+Für die Elektronen aus der K-Schale lässt sich so aus der Feinstrukturformel der Abschirmkoeffizient bestimmen (\ref{eqn:Sigma}).
 \begin{equation}
     \sigma_{\text{K}} = Z - \sqrt{\frac{E_{\text{K}}}{R_{\text{y}}}-\frac{\alpha^2Z^4}{4}} \label{eqn:Sigma}
 \end{equation}
-Mit der Rydberg Energie $R_{\text{y}} = hcR_{\infty}$ die sich aus der Rydberg Konstanten $R_{\infty} ≈ 1,097 \cdot 10^{7} \text{m}^{-1}$ berechnen lässt.
+In der Formel berücksichtigt dabei der Subtrahend in der Wurzel die Feinstrukturspaltung.
 
 \subsection{Bragg Reflexion}
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{bilder/Bragg_Reflexion.png}
+    \includegraphics[width=0.5\textwidth]{bilder/Bragg_Reflexion.png}
     \caption{Eine schematische Skizze der Bragg Reflexion. (Quelle \cite{Anleitung}}
     \label{fig:Bragg_Reflexion}
 \end{figure}
+Als Bragg Reflexion wird der Effekt bezeichnet, der stattfindet wenn elektromagnetische Strahlung auf einen Kristall mit einem regelmäßigen Kristallgitter fällt.
+Wenn die EM-Strahlung in einem genau definierten Winkel(\ref{eqn:Bragg_Bedingung}), der vom Kristallgitterabstand und der Wellenlänge der Strahlung abhängt, auf den Kristall fällt, kann sie mit maximaler Intensität reflektiert werden.
+Dieses Wellenlängeabhängige Phänomen lässt sich dadurch erklären, dass wenn der Gitterabstand ein Vielfaches der Wellenlänge ist, die Strahlung die an zwei verschiedenen Schichten des Materials reflektiert wird danach konstruktiv interferiert.
+Wenn Strahlung zwischen zwei Schichten konstruktiv interferiert gilt das für belibige Schichten und somit für das gesamte Material. Wenn die Strahlung allerdings nicht konstruktiv interferiert kommt ein destruktiv Interfierender ANteil hinzu und die Strahlungsintensität wird für entsprechende Wellenlängen geschwächt.
+Für die Bragg Reflexion gilt außerdem dass wenn der Einfallswinkel gleich dem Ausfallswinkel ist die maximale Intensität reflektiert wird(\ref{fig:Bragg_Reflexion}).
 \begin{equation}
     \theta = \arcsin\left( \frac{n\lambda}{2d}\right) \underset{\lambda = \frac{hc}{E}}{=} \arcsin\left( \frac{n h c}{2dE}\right) \label{eqn:Bragg_Bedingung}
 \end{equation}
