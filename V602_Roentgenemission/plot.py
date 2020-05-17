@@ -175,7 +175,7 @@ plt.savefig("plots/Zirkonium.pdf",bbox_inches='tight')
 plt.close()
 I_K_Zirkonium = N_Zirkonium[0]+(N_Zirkonium[7]-N_Zirkonium[0])/2
 E_K_Zirkonium = (h*c)/(2*d_LiF*np.sin(9.95*np.pi/180))
-sigma_K_Zirkonium = 38-np.sqrt((E_K_Zirkonium)/(R_y)-((alpha**2)*(38**4))/(4))
+sigma_K_Zirkonium = 40-np.sqrt((E_K_Zirkonium)/(R_y)-((alpha**2)*(40**4))/(4))
 
 #Strontium
 theta_Strontium,N_Strontium = np.genfromtxt("data/Strontium.dat", unpack = True)
@@ -187,7 +187,7 @@ plt.savefig("plots/Strontium.pdf",bbox_inches='tight')
 plt.close()
 I_K_Strontium = N_Strontium[4]+(N_Strontium[9]-N_Strontium[4])/2
 E_K_Strontium = (h*c)/(2*d_LiF*np.sin(11.1*np.pi/180))
-sigma_K_Strontium = 40-np.sqrt((E_K_Strontium)/(R_y)-((alpha**2)*(40**4))/(4))
+sigma_K_Strontium = 38-np.sqrt((E_K_Strontium)/(R_y)-((alpha**2)*(38**4))/(4))
 
 
 def f(x,m,b):
@@ -196,13 +196,14 @@ def f(x,m,b):
 Z = np.array([30,31,35,37,38,40])
 E_K_exp = np.array([E_K_Zink,E_K_Gallium,E_K_Brom,E_K_Rubidium,E_K_Strontium,E_K_Zirkonium])
 sigma_K_exp = np.array([sigma_K_Zink,sigma_K_Gallium,sigma_K_Brom,sigma_K_Rubidium,sigma_K_Strontium,sigma_K_Zirkonium])
+
 plt.plot(Z,np.sqrt(E_K_exp),'rx',label = 'Messdaten')
 params, cov = curve_fit(f,Z,np.sqrt(E_K_exp))
 errors = np.sqrt(np.diag(cov))
 unparams = unp.uarray(params,errors)
 plt.plot(Z,f(Z,*params),'b--',label = 'Ausgleichsgerade')
-plt.ylabel(f"Impulse pro Sekunde")
-plt.xlabel(f"Winkel / Grad")
+plt.ylabel(f"xxx")
+plt.xlabel(f"xxx")
 plt.legend()
 plt.savefig("plots/Rydberg.pdf",bbox_inches='tight')
 plt.close()
