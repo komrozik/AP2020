@@ -100,6 +100,10 @@ E_K_lit = 8.98*10**3*scipy.constants.e
 sigma_1 = 29-np.sqrt((E_K_lit)/(R_y))
 sigma_2 = 29-np.sqrt( 4*(29-sigma_1)**2-(E_K_peaka)/(R_y)*4 )
 sigma_3 = 29-np.sqrt( 9*(29-sigma_1)**2-(E_K_peakb)/(R_y)*9 )
+sigma_2_lit = 29-np.sqrt( 4*(29-sigma_1)**2-(E_C_Ka)/(R_y)*4 )
+sigma_3_lit = 29-np.sqrt( 9*(29-sigma_1)**2-(E_C_Kb)/(R_y)*9 )
+sigma_2_abweichung = np.abs((sigma_2_lit - sigma_2)/sigma_2_lit)
+sigma_3_abweichung = np.abs((sigma_3_lit - sigma_3)/sigma_3_lit)
 print("Absorptionskanten")
 
 #Zink
@@ -202,8 +206,8 @@ params, cov = curve_fit(f,Z,np.sqrt(E_K_exp))
 errors = np.sqrt(np.diag(cov))
 unparams = unp.uarray(params,errors)
 plt.plot(Z,f(Z,*params),'b--',label = 'Ausgleichsgerade')
-plt.ylabel(f"xxx")
-plt.xlabel(f"xxx")
+plt.ylabel(f"Wurzel aus E")
+plt.xlabel(f"Ordnungszahl Z")
 plt.legend()
 plt.savefig("plots/Rydberg.pdf",bbox_inches='tight')
 plt.close()
@@ -231,11 +235,16 @@ theta: {theta_peak_Cu}
 Die Sigmas:
 Sigma 1: {sigma_1}
 Sigma 2: {sigma_2}
+Literatur: {sigma_2_lit}
+Abweichung: {sigma_2_abweichung}
 Sigma 3: {sigma_3}
+Literatur: {sigma_3_lit}
+Abweichung: {sigma_3_abweichung}
 ----------------------
 BRAGGBEDINGUNG:
 Das Maximum der Kurve weicht um {theta_abs}° vom Sollwert ab.
 Das ist ein relativer Fehler von {theta_rel}. Ungefähr {theta_rel*100} %.
+
 
 Die Auflösungen sind:
 Energie a:{E_K_peaka*6.242*10**18}

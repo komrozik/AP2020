@@ -14,6 +14,8 @@ Zu den Elementen bei denen die Absorption untersucht wird sollen auch die entspr
   & Z & $E_K^{Lit}$ & $\theta_K^{Lit}$ & $\sigma_K$\\
   &   & [keV] & [°] &  \\
   \toprule
+Cu & 29 & 8,98 & 20,05 & 3,31\\
+\midrule
 Zn & 30 & 9,65 & 18,6 & 3,56\\
 \midrule
 Ga & 31 & 10,37 & 17,27 & 3,62\\
@@ -35,14 +37,14 @@ Die Werte für Gerundium sind für unseren Versuch uninteressant, da das Materia
 \subsection{Bragg Bedingung}
 Aus den Messdaten ergibt sich der Plot \ref{fig:Bragg} und es kann mit der SciPy Funktion findPeaks das Maximum bestimmen.
 Damit lässt sich auch die Abweichung von den Literaturwerten bestimmen.
-\begin{align}
+\begin{align*}
     \Delta \theta_{\text{abs}} = \theta_{\text{lit}}-\theta_{\text{exp}} && \Delta \theta_{\text{rel}} = \frac{\Delta \theta_{\text{abs}}}{\theta_{\text{lit}}}\\
     \Delta \theta_{\text{abs}} = 0,2° &&     \Delta \theta_{\text{rel}} = 0,0071 \; \hat{=} \; 0,71 \% 
-\end{align}
+\end{align*}
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{plots/Bragg.pdf}
-    \caption{Ein Plot}
+    \caption{Es werden die Impulse pro Sekunde gegen den Messwinkel aufgetragen. Es ist ein klares Maximum zu erkennen, welches mit einer SciPy Funktion markiert wird.}
     \label{fig:Bragg}
 \end{figure}
 
@@ -51,17 +53,24 @@ Aus den Messdaten lässt sich der Plot \ref{fig:Cu_Emission} erstellen und die P
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{plots/Cu_Emission.pdf}
-    \caption{Ein Kupfer Plot}
+    \caption{Das Kupfer Emissionsspektrum wird geplottet, indem die Intensität der Röntgenstrahlung in Abhängigkeit vom Bragg-Winkel aufgetragen wird.
+    Es sind sowohl der Bremsberg als auch die charakteristischen Peaks gut zu erkennen und markiert.}
     \label{fig:Cu_Emission}
 \end{figure}
 Die Peaks des Spektrums werden mit einer Scipy funktion bestimmt und der Abschnitt der Peaks nochmal vergrößert dargestellt.
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{plots/Cu_Peaks.pdf}
-    \caption{Ein Kupfer Plot mit tolleren Peaks}
+    \caption{Um die Peaks genauer zu analysieren werden sie in einem verkleinerten Bereich dargestellt.
+    In grün sind ist die FWHM aus der SciPy Funktion eingezeichnet.}
     \label{fig:Cu_Peaks}
 \end{figure}
 Über eine weitere Funktion wird nun die "Full Width at Half Maximum" bestimmt.
+Aus den Funktionen ergibt sich:
+\begin{align*}
+    E_{\alpha} = 8043,98 \; \text{eV} && E_{\beta} = 8914,90 \; \text{eV}\\
+    \Delta E_{\alpha} = 165 \;\text{eV} && \Delta E_{\beta} = 205 \;\text{eV}
+\end{align*}
 Aus den Werten der FWHM kann nun das Auflösungsvermögen $A$ bestimmt werden.
 \begin{align}
     A = \frac{E_{\text{peak}}}{\Delta E_{\text{FWHM}}} \nonumber\\
@@ -81,7 +90,7 @@ Damit lassen sich die Abschirmkonstanten $\sigma$ bestimmen.
 
 \subsection{Andere Metalle}
 Im letzten Teil des Experiments werden die Abschirmkonstanten der K-Schale für verschiedene Materialien bestimmt.
-Aus den Messdaten lässt sich für die Metalle jeweils ein Plot darstellen und die Lage der K Kante anhand von Maximum und Minimum berechnen (\ref{eqn:Kante}).
+Aus den Messdaten lässt sich für die Metalle jeweils ein Plot (\ref{sec:Anhang}) darstellen und die Lage der K Kante anhand von Maximum und Minimum berechnen (\ref{eqn:Kante}).
 Mit der berechnetetn Lage der K-Kante kann nun der Wert von $\theta$ für die jeweilige K-Kante abgelesen werden. 
 \begin{equation}
     I_{\text{K}}= I_{\text{K}}^{\text{min}} + \frac{I_{\text{K}}^{\text{max}}-I_{\text{K}}^{\text{min}}}{2} \label{eqn:Kante}
@@ -117,6 +126,13 @@ Laut dem Moseley Gesetz (\ref{eqn:Moseley}) ist die Absorptionsenergie der Kante
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{plots/Rydberg.pdf}
-    \caption{Ein Moseley Plot}
+    \caption{Es wird $\sqrt{E}$ gegen die Ordnungszahl aufgetragen.}
     \label{fig:Moseley}
 \end{figure}
+Aus der Ausgleichsrechnung ergeben sich die Parameter:
+\begin{equation*}
+    f(x) = mx+b
+\end{equation*}
+\begin{align*}
+    m = (1,420 \pm 0,009)\cdot 10^{-9} && b = (-3,36 \pm 0,31)\cdot 10^{-9}
+\end{align*}
