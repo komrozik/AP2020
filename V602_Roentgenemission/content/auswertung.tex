@@ -16,7 +16,7 @@ Zu den Elementen bei denen die Absorption untersucht wird sollen auch die entspr
   \toprule
 Cu & 29 & 8,98 & 20,05 & 3,31\\
 \midrule
-Zn & 30 & 9,65 & 18,6 & 3,56\\
+Zn & 30 & 9,65 & 18,6 & 3,57\\
 \midrule
 Ga & 31 & 10,37 & 17,27 & 3,62\\
 \midrule
@@ -35,7 +35,7 @@ Zr & 40 & 17,99 & 9,6 & 4,11\\
 Die Parameter wurden aus der Energie mit der Bragg Bedingung \ref{eqn:Bragg_Bedingung} und der Formel \ref{eqn:Sigma} berechnet.
 Die Werte für Gerundium sind für unseren Versuch uninteressant, da das Material nicht untersucht wird.
 \subsection{Bragg Bedingung}
-Aus den Messdaten ergibt sich der Plot \ref{fig:Bragg} und es kann mit der SciPy Funktion findPeaks das Maximum bestimmen.
+Aus den Messdaten ergibt sich der Plot \ref{fig:Bragg} und es kann mit der SciPy Funktion findPeaks das Maximum bei $\theta = 28,2°$ bestimmen.
 Damit lässt sich auch die Abweichung von den Literaturwerten bestimmen.
 \begin{align*}
     \Delta \theta_{\text{abs}} = \theta_{\text{lit}}-\theta_{\text{exp}} && \Delta \theta_{\text{rel}} = \frac{\Delta \theta_{\text{abs}}}{\theta_{\text{lit}}}\\
@@ -72,10 +72,12 @@ Aus den Funktionen ergibt sich:
     \Delta E_{\alpha} = 165 \;\text{eV} && \Delta E_{\beta} = 205 \;\text{eV}
 \end{align*}
 Aus den Werten der FWHM kann nun das Auflösungsvermögen $A$ bestimmt werden.
-\begin{align}
-    A = \frac{E_{\text{peak}}}{\Delta E_{\text{FWHM}}} \nonumber\\
+\begin{equation}
+     A = \frac{E_{\text{peak}}}{\Delta E_{\text{FWHM}}} \nonumber\\
+\end{equation}
+\begin{align*}
     A_{\alpha}= 48,56 && A_{\beta} = 43,36
-\end{align}
+\end{align*}
 Desweiteren werden die Abschirmkonstanten für Kupfer bestimmt.
 Aus der Literatur findet man den Wert für $E_{\text{K,abs}}$ als $8980,22$ eV.
 Damit lassen sich die Abschirmkonstanten $\sigma$ bestimmen.
@@ -84,9 +86,9 @@ Damit lassen sich die Abschirmkonstanten $\sigma$ bestimmen.
     \sigma_2 &= Z-\sqrt{ \frac{m^2}{n^2}\left(z-\sigma_1\right)^2- \frac{E_{\text{K,}\alpha}}{R_{\text{y}}}m^2 } \\
     \sigma_3 &= Z-\sqrt{ \frac{l^2}{n^2}\left(z-\sigma_1\right)^2- \frac{E_{\text{K,}\beta}}{R_{\text{y}}}l^2 }
 \end{align*}
-\begin{align}
+\begin{align*}
     \sigma_1 = 3,31 && \sigma_2 = 12,41 && \sigma_3 = 22,40 
-\end{align}
+\end{align*}
 
 \subsection{Andere Metalle}
 Im letzten Teil des Experiments werden die Abschirmkonstanten der K-Schale für verschiedene Materialien bestimmt.
@@ -134,5 +136,16 @@ Aus der Ausgleichsrechnung ergeben sich die Parameter:
     f(x) = mx+b
 \end{equation*}
 \begin{align*}
-    m = (1,420 \pm 0,009)\cdot 10^{-9} && b = (-3,36 \pm 0,31)\cdot 10^{-9}
+    m = (1,420 \pm 0,009)\cdot 10^{-9} \sqrt{\text{J}} && b = (-3,36 \pm 0,31)\cdot 10^{-9} \sqrt{\text{J}}
+\end{align*}
+\begin{equation*}
+    R = \frac{m^2}{h}
+\end{equation*}
+Damit ergibt sich 
+\begin{align*}
+    R_{\infty} = (1,015\pm0,012) \cdot 10^{7} \; \frac{1}{\text{m}}&& R = (3,04\pm0,04)\cdot 10^{15} \; \text{Hz} && R_{\text{y}} = (2,016 \pm 0,025)\cdot 10^{-18} \; \text{Joule}
+\end{align*}
+Mit dem Fehler für R aus:
+\begin{align*}
+    \Delta R = \sqrt{\left( 2\frac{m}{h} \Delta m\right)^2}
 \end{align*}

@@ -117,6 +117,7 @@ plt.close()
 I_K_Zink = N_Zink[5]+(N_Zink[10]-N_Zink[5])/2
 E_K_Zink = (h*c)/(2*d_LiF*np.sin(18.7*np.pi/180))
 sigma_K_Zink = 30-np.sqrt((E_K_Zink)/(R_y)-((alpha**2)*(30**4))/(4))
+sigma_K_Zink_rel = (sigma_K[0]-sigma_K_Zink)/sigma_K[0]
 
 #Gallium
 theta_Gallium,N_Gallium = np.genfromtxt("data/Gallium.dat", unpack = True)
@@ -129,6 +130,7 @@ plt.close()
 I_K_Gallium = N_Gallium[1]+(N_Gallium[6]-N_Gallium[1])/2
 E_K_Gallium = (h*c)/(2*d_LiF*np.sin(17.375*np.pi/180))
 sigma_K_Gallium = 31-np.sqrt((E_K_Gallium)/(R_y)-((alpha**2)*(31**4))/(4))
+sigma_K_Gallium_rel = (sigma_K[1]-sigma_K_Gallium)/sigma_K[1]
 
 #Brom
 theta_Brom,N_Brom = np.genfromtxt("data/Brom.dat", unpack = True)
@@ -146,6 +148,7 @@ plt.close()
 I_K_Brom = N_Brom[2]+(N_Brom[7]-N_Brom[2])/2
 E_K_Brom = (h*c)/(2*d_LiF*np.sin(13.2*np.pi/180))
 sigma_K_Brom = 35-np.sqrt((E_K_Brom)/(R_y)-((alpha**2)*(35**4))/(4))
+sigma_K_Brom_rel = (sigma_K[3]-sigma_K_Brom)/sigma_K[3]
 
 #Rubidium
 theta_Rubidium,N_Rubidium = np.genfromtxt("data/Rubidium.dat", unpack = True)
@@ -163,6 +166,20 @@ plt.close()
 I_K_Rubidium = N_Rubidium[3]+(N_Rubidium[9]-N_Rubidium[3])/2
 E_K_Rubidium = (h*c)/(2*d_LiF*np.sin(11.8*np.pi/180))
 sigma_K_Rubidium = 37-np.sqrt((E_K_Rubidium)/(R_y)-((alpha**2)*(37**4))/(4))
+sigma_K_Rubidium_rel = (sigma_K[4]-sigma_K_Rubidium)/sigma_K[4]
+
+#Strontium
+theta_Strontium,N_Strontium = np.genfromtxt("data/Strontium.dat", unpack = True)
+plt.plot(theta_Strontium,N_Strontium,'rx',label = 'Messdaten')
+plt.ylabel(f"Impulse pro Sekunde")
+plt.xlabel(f"Winkel / Grad")
+plt.legend()
+plt.savefig("plots/Strontium.pdf",bbox_inches='tight')
+plt.close()
+I_K_Strontium = N_Strontium[4]+(N_Strontium[9]-N_Strontium[4])/2
+E_K_Strontium = (h*c)/(2*d_LiF*np.sin(11.1*np.pi/180))
+sigma_K_Strontium = 38-np.sqrt((E_K_Strontium)/(R_y)-((alpha**2)*(38**4))/(4))
+sigma_K_Strontium_rel = (sigma_K[5]-sigma_K_Brom)/sigma_K[5]
 
 #Zirkonium
 theta_Zirkonium,N_Zirkonium = np.genfromtxt("data/Zirkonium.dat", unpack = True)
@@ -180,19 +197,7 @@ plt.close()
 I_K_Zirkonium = N_Zirkonium[0]+(N_Zirkonium[7]-N_Zirkonium[0])/2
 E_K_Zirkonium = (h*c)/(2*d_LiF*np.sin(9.95*np.pi/180))
 sigma_K_Zirkonium = 40-np.sqrt((E_K_Zirkonium)/(R_y)-((alpha**2)*(40**4))/(4))
-
-#Strontium
-theta_Strontium,N_Strontium = np.genfromtxt("data/Strontium.dat", unpack = True)
-plt.plot(theta_Strontium,N_Strontium,'rx',label = 'Messdaten')
-plt.ylabel(f"Impulse pro Sekunde")
-plt.xlabel(f"Winkel / Grad")
-plt.legend()
-plt.savefig("plots/Strontium.pdf",bbox_inches='tight')
-plt.close()
-I_K_Strontium = N_Strontium[4]+(N_Strontium[9]-N_Strontium[4])/2
-E_K_Strontium = (h*c)/(2*d_LiF*np.sin(11.1*np.pi/180))
-sigma_K_Strontium = 38-np.sqrt((E_K_Strontium)/(R_y)-((alpha**2)*(38**4))/(4))
-
+sigma_K_Zirkonium_rel = (sigma_K[6]-sigma_K_Zirkonium)/sigma_K[6]
 
 def f(x,m,b):
     return m*x+b
@@ -212,6 +217,7 @@ plt.legend()
 plt.savefig("plots/Rydberg.pdf",bbox_inches='tight')
 plt.close()
 Ryd_exp = unparams[0]**2/h
+Ryd_exp_rel = (R_y-noms(Ryd_exp*h))/(R_y)
 
 print(f"""
 VORBEREITUNG:
@@ -274,16 +280,24 @@ Strontium: {E_K_Strontium*6.242*10**18}
 
 Die Abschirmkonstanten:
 Zink: {sigma_K_Zink}
+Relative Abweichung: {sigma_K_Zink_rel}
 Gallium: {sigma_K_Gallium}
+Relative Abweichung: {sigma_K_Gallium_rel}
 Brom: {sigma_K_Brom}
+Relative Abweichung: {sigma_K_Brom_rel}
 Rubidium: {sigma_K_Rubidium}
-Zirkonium: {sigma_K_Zirkonium}
+Relative Abweichung: {sigma_K_Rubidium_rel}
 Strontium: {sigma_K_Strontium}
+Relative Abweichung: {sigma_K_Strontium_rel}
+Zirkonium: {sigma_K_Zirkonium}
+Relative Abweichung: {sigma_K_Zirkonium_rel}
+
 
 Für den Rydberg graph und die Ausgleichskurve sind:
 m : {unparams[0]}
 b : {unparams[1]}
 Rydberg-Frequenz: {Ryd_exp}
 Rydberg Energie: {Ryd_exp*h}
+mit der rel. Abweichung: {Ryd_exp_rel}
 Rydberg konstante: {Ryd_exp/c}
 """)
