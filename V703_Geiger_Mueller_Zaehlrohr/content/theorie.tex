@@ -25,7 +25,19 @@ Die Messung der einfallenden Teilchen und somit der Intensität ist stark abhän
     \caption{ Anzahl der Elektronen-Ion-Paare. (Quelle \cite{Anleitung})}
     \label{fig:Anzahl_der_Elektronen}
 \end{figure}
-Wenn zu Beginn nur eine Sehr schwache Spannung angelegt ist reicht diese nicht aus um die Elektron Ion Paare zu trennen und sie Rekombinieren direkt wieder.
+Wenn zu Beginn nur eine Sehr schwache Spannung angelegt ist reicht diese nicht aus um die Elektron Ion Paare zu trennen und sie Rekombinieren direkt wieder (Bereich I).
+In diesem Bereich steigt die Anzahl der detektierten Elektronen schnell an, da mit der steigenden Spannung die Wahrscheinlichkeit des Rekombinierens schnell sinkt.
+In dem Bereich (II) unmittelbar nachdem die Rekombinationswahrscheinlchikeit gegen Null gelaufen ist, können mit dem Zählrohr nur sehr hohe Strahlungsintensitäten gemseen werden und Zählrohre dieser Art werden Ionisationskammer genannt.
+Wenn die Spannung weiter erhöht wird nehmen die Elektronen aus den Ionisationen zwischen zwei Atomen genug Energie auf um das nächste Atom das sie stoßen zu ionisieren.
+Durch diese sogenannte Stoßionisation entsteht ein lawinenartiger Anstieg der Anzahl der Elektronen, dieses Phänomen wird die Townsend-Lawine genannt.
+Auch wenn in diesem Intervall pro Teilchen sehr viele Elektronen entstehen ist der gemessene Ladungsimpuls immer noch proportional zur Energie des einfallenden Teilchens.
+Daher lässt sich in diesem Bereich sowohl die Intensität als auch die Teilchenenergie messen und Zählrohre die in diesem Bereich arbeiten werden Proportionalitätszählrohr genannt.
+Wenn die Spannung den Proportionalitätsbereich übersteigt wird der Ladungsimpuls unabhängig von der Energie des einfallenden Teilchens und der Auslösebereich beginnt.
+Der Auslösebereich ist der Arbeitsbereich des zu untersuchenden Geiger-Müller-Zählrohres.
+In diesem Bereich werden die Atome im Gas nicht nur durch Elektronen ionisiert, sondern für die Stoßionisation nehmen die Elektronen so viel Energie auf, dass bei der Ionisation auch UV-Photonen frei werden.
+Die entstandenen UV-Photonen  können sich im Zählrohr unabhängig von dem E-Feld bewegen und weitere Teilchen ionisieren, daher wird in diesem Bereich das gesamte Zählrohr Volumen ionisiert.
+Nun ist der zu messende Ladungsimpuls nich abhängig von der Teilchenenergie aber abhängig vom Volumen des Zählrohrs, daher lässt sich mit dem Geiger-Müller-Zählrohr nur die Strhlungsintensität messen.
+Wenn die Spannung über diesen Bereich erhöht wird kann das Zählrohr nicht mehr richtig arbeiten und durch eine kontinuierliche Ionisation im Zählrohrvolumen wird jenes zerstört.
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{bilder/Zaehlrohr_N_U_Graph.png}
@@ -33,6 +45,11 @@ Wenn zu Beginn nur eine Sehr schwache Spannung angelegt ist reicht diese nicht a
     \label{fig:Zaehlrohr_N_U_Graph}
 \end{figure}
 \subsubsection{Totzeit}
+Wenn die Atome im Zählrohr ionisiert werden, können die beweglichen Elektronen schnell zum Anodendraht in der Mitte der Zählrohrs gehen, aber die Ionen bleiben wegen ihrer größeren Masse noch länger im Zählrohrvolumen.
+Durch den sich aus den Ionen bildenden Schlauch von positiven Ladungen um den Anodendraht wird das E-Feld im inneren geschwächt und es kann keine Stoßionisation stattfinden.
+Daher kann für ein Zeitintervall $T_{\text{tot}}$ kein einfallendes Teilchen detektiert werden.
+Erst wenn die Ionen im Zählrohr wieder vollstaändig neutralisiert sind kann der Ladungsimpuls wieder seine ursprüngliche Höhe erreichen.
+Dadurch eintsteht zwischen den Pulsen auch eine sogenannte Erholungszeit $T_{\text{E}}$ in der nur geschwächte Ladungsimpulse stattfinden.
 \subsubsection{Nachentladung}
 \label{sec:Nachentladung}
 \subsection{Charakteristik Geiger-Müller-Zählrohr}
