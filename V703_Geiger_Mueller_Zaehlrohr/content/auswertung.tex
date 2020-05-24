@@ -1,8 +1,21 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+Die aufgenommenen Daten für die charakteristik sind Poissonverteilt und werden daher mit dem entsprechenden Fehler versehen.
+Um das Plateu auszuwerten werden die Start und End Werte abgelesen und eine lineare Regression gemäß Formel \ref{eqn:linReg} gemacht.
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{plots/Kennlinie.pdf}
     \caption{Eine Kennlinie.}
     \label{fig:Kennlinie}
 \end{figure}
+\begin{align}
+    f(x) = m\cdot x +b \label{eqn:linReg}\\
+    m = 1,21 \pm 0,26&& b = (9,56 \pm 0,13)\cdot 10^{3}
+\end{align}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{plots/Ladungsmenge.pdf}
+    \caption{Eine Ladungsmenge.}
+    \label{fig:Ladungsmenge}
+\end{figure}
+Nun kann die Steigung der Geraden in \% pro  100V angegeben werden.
