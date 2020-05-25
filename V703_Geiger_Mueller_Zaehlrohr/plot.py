@@ -34,6 +34,10 @@ plt.legend()
 plt.savefig("plots/Kennlinie.pdf",bbox_inches='tight')
 plt.close()
 
+#Steigung
+M = (f(100,*unparams)-f(0,*unparams))/(f(100,*unparams))
+
+
 print("Totzeit")
 N1 = 96041/120
 N1 = unp.uarray(N1,np.sqrt(N1))
@@ -52,21 +56,34 @@ N_Zaehl = unp.uarray(N_Zaehl,np.sqrt(N_Zaehl))
 N_Zaehl = N_Zaehl/60
 Z = I/(e*N_Zaehl)
 
-# plt.errorbar(noms(I), noms(Z), yerr=stds(Z), xerr=None,fmt = 'rx', label = "Messwerte")
-plt.plot(noms(I), noms(Z),'rx', label = "Messwerte")
+plt.errorbar(noms(I), noms(Z), yerr = stds(Z), xerr = None,fmt = 'rx', label = "Messwerte")
+# plt.plot(noms(I), noms(Z),'rx', label = "Messwerte")
 plt.ylabel(f"Z")
 plt.xlabel(f"I in Ampere")
+# laenge = np.array([4,6,8,10,12,14,16,18])*10**(-7)
+# plt.xticks(laenge)
 plt.legend()
 plt.savefig("plots/Ladungsmenge.pdf",bbox_inches='tight')
 plt.close()
 
 print(f"""
+Grenzen des Plateaus:
+Unten: {U_Kenn[5]}
+Oben: {U_Kenn[-8]}
+
 Parameter des Ausgleichs:
 m: {unparams[0]}
 b: {unparams[1]}
 
+Steigung pro 100V:
+{M}
+
 Totzeit:
 {Tot}
+Impulsraten:
+N_1 : {N1}
+N_2 : {N2}
+N_12: {N12}
 
 Ladungen pro Teilchen:
 {Z[0]}
@@ -77,5 +94,5 @@ Ladungen pro Teilchen:
 {Z[5]}
 {Z[6]}
 {Z[7]}
-""")
 
+""")

@@ -2,7 +2,7 @@
 \label{sec:Durchfuehrung}
 \subsection{Aufnahme der Charakteristik}
 Um die charakteristik des Zählrohrs aufzunehmen wird ein Beta-Strahler vor dem Zählrohr platziert und die Zählrate in Abhängigkeit von der Spannung aufgenommen.
-Dabei ist zu beachten, dass der Strahler so gewählt wurde, dass die maximale Impulsrate unter 100 \sfrac{1}{\text{s}} liegt, um den effekt der Totzeit zu minimieren.
+Dabei ist zu beachten, dass um den relativen Fehler der Einzelmessungen zu minimieren über eine Zeit von 60s gemessen wird, dadurch allerdins Zaählraten von über 100 Impulsen pro Sekunde entstehen.
 Außerdem muss die Spannung $U < 700\text{V}$ gehalten werden, damit der Zustand der Dauerentladung nicht erreicht wird.
 \subsection{Totzeit}
 Die Totzeit wird auf zwei Arten bestimmt.
@@ -10,16 +10,13 @@ Zum einen kann über eine Messung mit angeschlossenem Oszilloskop die Totzeit au
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{bilder/Oszilloskop.png}
-    \caption{Ein Ossi. (Quelle \cite{Anleitung})}
+    \caption{Die Aufnahme des Oszilloskops um die Totzeit zu bestimmen. (Quelle \cite{Anleitung})}
     \label{fig:Oszilloskop}
 \end{figure}
 Es kann aber auch über die Messung der Intensitäten zwei verschiedener Proben und der Intensität beider Proben zusammen (Bilder: \ref{sec:Anhang}) die Totzeit berechnet werden (\ref{eqn:Totzeit}).
 \begin{equation}
-    T_{\text{tot}} ≈ \frac{N_{1}+N_{2}-N_{1+2}}{2N_1N_2}
+    T_{\text{tot}} ≈ \frac{N_{1}+N_{2}-N_{1+2}}{2N_1N_2} \label{eqn:Totzeit}
 \end{equation}
 \subsection{Ladungsmenge pro Teilchen}
 Um die Ladungsmenge pro Teilchen zu bestimmen, wurde bei der Messung für Charakteristik in regelmäßigen Abständen auch der mittlere Zählstrom I gemessen.
-Aus dem Zählstrom lässt sich damit die Anzahl der freigesetzten Ladungen pro Teilchen bestimmen.
-\begin{equation}
-    Z = \frac{I}{e_0N}
-\end{equation}
+Aus dem Zählstrom lässt sich damit (Formel \ref{eqn:Ladungsmenge}) die Anzahl der freigesetzten Ladungen pro Teilchen bestimmen.

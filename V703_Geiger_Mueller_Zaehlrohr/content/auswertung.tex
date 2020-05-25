@@ -1,21 +1,72 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+\subsection{Charakteristik}
 Die aufgenommenen Daten für die charakteristik sind Poissonverteilt und werden daher mit dem entsprechenden Fehler versehen.
 Um das Plateu auszuwerten werden die Start und End Werte abgelesen und eine lineare Regression gemäß Formel \ref{eqn:linReg} gemacht.
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{plots/Kennlinie.pdf}
-    \caption{Eine Kennlinie.}
+    \caption{Die Impulse werden mit ihren Fehlern gegen die Spannung aufgetragen. Das Plateau ist gut erkennbar und durch eine lineare Ausgleichsgerade angenähert. }
     \label{fig:Kennlinie}
 \end{figure}
+Das Plateau wurde für den Bereich zwischen $U = 370$ und $U = 630$ bestimmt.
 \begin{align}
-    f(x) = m\cdot x +b \label{eqn:linReg}\\
-    m = 1,21 \pm 0,26&& b = (9,56 \pm 0,13)\cdot 10^{3}
+    f(x) = m\cdot x +b \label{eqn:linReg} \nonumber \\
+    m = 1,21 \pm 0,26 \frac{1}{V}&& b = (9,56 \pm 0,13)\cdot 10^{3} \nonumber
 \end{align}
+Nun kann die Steigung der Geraden in \% pro  100V angegeben werden.
+\begin{align}
+    m_\% = \frac{f(100)-f(0)}{f(100)} \nonumber\\
+    m_\% = (1,26 \pm 0,26)\frac{\%}{100\text{V}} \nonumber
+\end{align}
+\subsection{Totzeit}
+\subsubsection{Zwei-Quellen-Methode}
+Es ergeben sich folgende Werte der Impulsraten
+\begin{align}
+    N_1 = 800 \pm 28 \; \frac{\text{Imp}}{\text{s}} && N_2 = 638\pm 25 \; \frac{\text{Imp}}{\text{s}} && N_{1+2} = 1320 \pm 40 \; \frac{\text{Imp}}{\text{s}} \nonumber
+\end{align}
+Aus diesen lässt sich mit Formel \ref{eqn:Totzeit} die entsprechende Totzeit mit dem Fehler $\Delta T_{\text{tot}}$ berechnen.
+\begin{align}
+    T_{\text{tot}} &= (0.00011\pm 0.00005) \text{s} = (110 \pm 50)\; \mu \text{s} \nonumber \\
+    \Delta T_{\text{tot}} &= \sqrt{ \left( \frac{N_{1+2}-N_2}{2N_1^2N_2} \cdot \Delta N_1 \right)^2 + \left( \frac{N_{1+2}-N_1}{2N_1N_2^2} \cdot \Delta N_2  \right)^2 + \left( -\frac{1}{2N_2N_1} \cdot \Delta N_{1+2}  \right)^2 } \nonumber
+\end{align}
+
+\subsubsection{Oszilloskop}
+Mithilfe des Oszilloskops kann der Abstand zwischen dem ersten großen und dem ersten kleineren peak abgelesen werden.
+Dieser Abstand entspricht der Totzeit des Geiger-Müller Zählrohrs.
+Aus Abb. \ref{fig:Oszilloskop} kann abgelesen werden:
+\begin{align}
+    T_{\text{tot}} ≈ 100 \; \mu \text{s} \nonumber
+\end{align}
+
+\subsection{Ladungsmenge pro Teilchen}
+Aus Gleichung \ref{eqn:Ladungsmenge} lässt sich über die Ströme und die entsprechenden Impulsraten die Ladungsmenge Z pro Teilchen bestimmen.
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{plots/Ladungsmenge.pdf}
-    \caption{Eine Ladungsmenge.}
+    \caption{Die Ladungsmenge pro Teilchen wird gegen die Stromstärke aufgetragen und die lineare Abhängigkeit ist erkennbar.}
     \label{fig:Ladungsmenge}
 \end{figure}
-Nun kann die Steigung der Geraden in \% pro  100V angegeben werden.
+Der Fehler ergibt sich dabei aus:
+\begin{equation}
+    \Delta Z = \sqrt{ \left( \frac{1}{eN} \cdot \Delta I \right)^2  + \left( -\frac{I}{eN^2}\cdot \Delta N \right)^2  } \nonumber
+\end{equation}
+Damit ergeben sich für Z folgende Werte:
+\begin{table}[h]
+\centering
+\label{tab:Ladungen}
+    \begin{tabular}{c c c }
+        \toprule
+        {I [nA]} & {Impulsrate [1/s]} & {Z [$e \cdot 10^{10}$]} \\
+        \midrule
+        $300 \pm 50$ & $164 \pm 2$ & $1,14 \pm 0,19$\\
+        $400 \pm 50$ & $167 \pm 2$ & $1,50 \pm 0,19$\\
+        $700 \pm 50$ & $171 \pm 2$ & $2,55 \pm 0,18$\\
+        $800 \pm 50$ & $169 \pm 2$ & $2,95 \pm 0,19$\\
+        $1000 \pm 50$ & $170 \pm 2$ & $3,68 \pm 0,19$\\
+        $1300 \pm 50$ & $171 \pm 2$ & $4,75 \pm 0,19$\\
+        $1400 \pm 50$ & $175 \pm 2$ & $5,00 \pm 0,18$\\
+        $1800 \pm 50$ & $192 \pm 2$ & $5,84 \pm 0,17$\\
+        \bottomrule
+    \end{tabular}
+\end{table}
